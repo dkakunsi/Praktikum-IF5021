@@ -1,4 +1,7 @@
-// Deddy Ch. Kakunsi
+/*
+ * Deddy Ch. Kakunsi
+ * Program Password
+ */
 
 #include<stdio.h>
 #include<string.h>
@@ -17,25 +20,30 @@ int main() {
 
 void proses() {
 	char kata[100];
-	int i, j;
-	int unik = 1;
+	int i, j, length = 0, unik = 1;
 
+	/* inisialisasi array menjadi nol */
 	for (i = 0; i < 100; i++) {
-		kata[i] = 0;
+		kata[i] = '\0';
 	}
 	
 	scanf("%s", &kata);
-	
-	if (strlen(kata) > 1) {
-		for (i = 0; i < sizeof(kata); i++) {
-			if (kata[i] == 0)
-				continue;
-			
-			for (j = i + 1; j < sizeof(kata); j++) {
-				//if ((toupper(kata[i]) == kata[j]) || (tolower(kata[i]) == kata[j]))
-				if (kata[i] == kata[j])
-					unik = 0;
+	length = strlen(kata);
+	if (length > 1) {
+		
+		i = 0;
+		while (unik && i < length) {
+
+			j = i + 1;
+			while (unik && j < length) {
+				if (kata[i] == kata[j]) {
+					unik = 0; /* change sentinel for both loop */
+				}
+				
+				j++; /* increment sentinel for inner loop */
 			}
+			
+			i++; /* increment sentinel for outer loop */
 		}
 	
 		printf("%d\n", unik);
