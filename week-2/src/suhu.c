@@ -13,9 +13,8 @@ int main() {
 	int _bawahNol = 0, _nol = 0, _normal = 0, _atasNormal = 0;
 
 	scanf("%d", &n);
-	umur = (int *) malloc(sizeof(int) * n);
-	
-	while (i < n) {
+	while (n <= 31 && i < n) {
+		umur = (int *) malloc(sizeof(int) * n);
 		scanf("%d", &umur[i]);
 		
 		if (terbesar < umur[i]) {

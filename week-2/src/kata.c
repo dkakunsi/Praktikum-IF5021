@@ -9,9 +9,10 @@
 void proses();
 
 int main() {
-	int i;
+	int n, i;
+	scanf("%d", &n);
 	
-	for (i = 0; i < 4; i++) {
+	for (i = 0; i < n; i++) {
 		proses();
 	}
 
