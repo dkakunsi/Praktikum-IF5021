@@ -7,18 +7,23 @@
 #include "queue.h"
 
 void CreateEmpty (Queue * Q, int Max) {
-    if ((Q->T = (infotype*) malloc(sizeof(infotype) * Max))) {
+	Q->T = (infotype*) malloc(sizeof(infotype) * Max);
+    if (Q->T != NULL) {
         MaxEl(*Q) = Max;
-        Head(*Q) = Nil;
-        Tail(*Q) = Nil;
     } else {
         MaxEl(*Q) = 0;
     }
+
+	Head(*Q) = Nil;
+	Tail(*Q) = Nil;
 }
 
 void DeAlokasi (Queue * Q) {
 	free(Q->T);
+
     MaxEl(*Q) = 0;
+	Head(*Q) = Nil;
+	Tail(*Q) = Nil;
 }
 
 boolean IsEmpty (Queue Q) {
@@ -63,7 +68,7 @@ void Del (Queue * Q, infotype * X) {
         Head(*Q)++;
 		/* Jika setelah Del, NbElmt menghasilkan nilai maksimal,
 		 * maka disimpulkan bahwa Queue kosong (lihat definisi NbElmt) */
-        if (NbElmt(*Q) == MaxEl(*Q)) {
+        if (NbElmt(*Q) >= MaxEl(*Q)) {
             Head(*Q) = Nil;
             Tail(*Q) = Nil;
         } else if (Head(*Q) >= MaxEl(*Q)) {
@@ -96,6 +101,11 @@ infotype Peek (Queue Q, address i) {
 
 void Iterate (Queue Q) {
     int idx;
+
+	if (IsEmpty(Q))
+		return;
+
     for (idx = 1; idx <= NbElmt(Q); idx++)
         printf("%ld ", Peek(Q, idx));
+	printf("\n");
 }

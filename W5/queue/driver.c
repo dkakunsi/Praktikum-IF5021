@@ -137,6 +137,7 @@ void test1() {
     printf("NbElmt %d\n", NbElmt(Q));
     printf("Val %d\n", X);
     printf("Empty %d\n", IsEmpty(Q));
+    Iterate(Q);
 }
 
 void test2() {
