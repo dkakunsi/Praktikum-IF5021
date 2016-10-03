@@ -6,41 +6,55 @@
 
 int main() {
     Queue Q;
-    int size, i;
-    int n, m, N;
-    infotype val;
+    int SIZE;
+    int M, N, i;
+	infotype val;
+	char line[10];
     
-    //baca size
-    scanf("%d", &size);
-    i = 0;
-    CreateEmpty(&Q, size);
-    while(i < N) {
+    /* baca SIZE */
+	fgets(line, sizeof(line), stdin);
+	sscanf(line, "%d", &SIZE);
 
-        //baca n
-        scanf("%d %d", &n, &m);
-        if (n > 0) {
-            while(n >= 0) {
-                Add(&Q, m);
+    CreateEmpty(&Q, SIZE);
+	N = -1;
+    while(N != 0) {
+
+        /* baca N */
+		fgets(line, sizeof(line), stdin);
+		sscanf(line, "%d %d", &N, &M);
+
+        if (N > 0) {
+			
+			i = N;
+            while(i > 0) {
                 if (IsFull(Q)) {
                     printf("PENUH\n");
                     break;
                 }
-                
-                n--;
+
+                Add(&Q, M);
+                i--;
             }
-        } else if(n < 0) {
-            while(n < 0) {
-                Del(&Q, &val);
+        } else if(N < 0) {
+
+			i = N;
+            while(i < 0) {
                 if (IsEmpty(Q)) {
                     printf("KOSONG\n");
                     break;
                 }
+
+                Del(&Q, &val);
+				i++;
             }
         } else {
-            Iterate(Q);
+			if (IsEmpty(Q)) {
+				printf("KOSONG\n");
+			} else {
+				Iterate(Q);
+			}
         }
     }
-    
-    printf("\n");
+
     return 0;
 }

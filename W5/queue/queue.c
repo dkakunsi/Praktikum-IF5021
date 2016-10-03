@@ -36,18 +36,20 @@ int NbElmt (Queue Q) {
     if (Head(Q) > Tail(Q))
         return Tail(Q) - Head(Q) + MaxEl(Q) + 1;
     return Tail(Q) - Head(Q) + 1;
+	
+	/* ditambahkan 1 dibelakang karena index mulai dari 0 */
 }
 
 void Add (Queue * Q, infotype X) {
     if (!IsFull(*Q)) {
-        if (Tail(*Q) == Nil) {
+        if (IsEmpty(*Q)) {
             Head(*Q) = 0;
             Tail(*Q) = 0;
         } else {
             Tail(*Q)++;
         }
         
-        if (Tail(*Q) > MaxEl(*Q))
+        if (Tail(*Q) >= MaxEl(*Q))
             Tail(*Q) = 0;
         
         InfoTail(*Q) = X;
@@ -59,10 +61,12 @@ void Del (Queue * Q, infotype * X) {
         *X = InfoHead(*Q);
         
         Head(*Q)++;
+		/* Jika setelah Del, NbElmt menghasilkan nilai maksimal,
+		 * maka disimpulkan bahwa Queue kosong (lihat definisi NbElmt) */
         if (NbElmt(*Q) == MaxEl(*Q)) {
             Head(*Q) = Nil;
             Tail(*Q) = Nil;
-        } else if (Head(*Q) > MaxEl(*Q)) {
+        } else if (Head(*Q) >= MaxEl(*Q)) {
             Head(*Q) = 0;
         }
     }
@@ -73,10 +77,15 @@ infotype Peek (Queue Q, address i) {
     infotype result;
     
     if (!IsEmpty(Q)) {
+		/* simpan state Head saat ini */
         tmp = Head(Q);
-        Head(Q) = i;
-        
+
+		Head(Q) += (i - 1);
+		if (Head(Q) >= MaxEl(Q))
+			Head(Q) = (Head(Q) % MaxEl(Q));
         result = InfoHead(Q);
+
+		/* restore state Head ke keadaan semula */
         Head(Q) = tmp;
         
         return result;
@@ -87,10 +96,6 @@ infotype Peek (Queue Q, address i) {
 
 void Iterate (Queue Q) {
     int idx;
-    
-    for (idx = Head(Q); idx <= Tail(Q); idx++) {
-        if (idx == MaxEl(Q))
-            idx = 0;
-        printf("%ld\n", Peek(Q, idx));
-    }
+    for (idx = 1; idx <= NbElmt(Q); idx++)
+        printf("%ld ", Peek(Q, idx));
 }
