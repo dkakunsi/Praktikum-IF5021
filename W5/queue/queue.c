@@ -19,7 +19,8 @@ void CreateEmpty (Queue * Q, int Max) {
 }
 
 void DeAlokasi (Queue * Q) {
-	free(Q->T);
+	if (Q->T)
+		free(Q->T);
 
     MaxEl(*Q) = 0;
 	Head(*Q) = Nil;
@@ -46,57 +47,56 @@ int NbElmt (Queue Q) {
 }
 
 void Add (Queue * Q, infotype X) {
-    if (!IsFull(*Q)) {
-        if (IsEmpty(*Q)) {
-            Head(*Q) = 0;
-            Tail(*Q) = 0;
-        } else {
-            Tail(*Q)++;
-        }
-        
-        if (Tail(*Q) >= MaxEl(*Q))
-            Tail(*Q) = 0;
-        
-        InfoTail(*Q) = X;
-    }
+    if (IsFull(*Q))
+		return;
+	
+	if (IsEmpty(*Q)) {
+		Head(*Q) = 0;
+		Tail(*Q) = 0;
+	} else {
+		Tail(*Q)++;
+		if (Tail(*Q) == MaxEl(*Q))
+			Tail(*Q) = 0;
+	}
+	
+	InfoTail(*Q) = X;
 }
 
 void Del (Queue * Q, infotype * X) {
-    if (!IsEmpty(*Q)) {
-        *X = InfoHead(*Q);
-        
-        Head(*Q)++;
-		/* Jika setelah Del, NbElmt menghasilkan nilai maksimal,
-		 * maka disimpulkan bahwa Queue kosong (lihat definisi NbElmt) */
-        if (NbElmt(*Q) >= MaxEl(*Q)) {
-            Head(*Q) = Nil;
-            Tail(*Q) = Nil;
-        } else if (Head(*Q) >= MaxEl(*Q)) {
-            Head(*Q) = 0;
-        }
-    }
+	
+    if (IsEmpty(*Q))
+		return;
+
+	*X = InfoHead(*Q);
+	Head(*Q)++;
+
+	/* Jika setelah Del, NbElmt menghasilkan nilai maksimal,
+	 * maka disimpulkan bahwa Queue kosong (lihat definisi NbElmt) */
+	if (IsFull(*Q)) {
+		Head(*Q) = Nil;
+		Tail(*Q) = Nil;
+	} else if (Head(*Q) == MaxEl(*Q)) {
+		Head(*Q) = 0;
+	}
 }
 
 infotype Peek (Queue Q, address i) {
-    address tmp, idx;
+    address tmp;
     infotype result;
+	
+	if (IsEmpty(Q))
+		return 0;
     
-    if (!IsEmpty(Q)) {
-		/* simpan state Head saat ini */
-        tmp = Head(Q);
+	tmp = Head(Q); /* simpan state Head */
 
-		Head(Q) += (i - 1);
-		if (Head(Q) >= MaxEl(Q))
-			Head(Q) = (Head(Q) % MaxEl(Q));
-        result = InfoHead(Q);
+	Head(Q) += (i - 1); /* -1 karena index mulai dari 0 */
+	if (Head(Q) >= MaxEl(Q))
+		Head(Q) %= MaxEl(Q);
 
-		/* restore state Head ke keadaan semula */
-        Head(Q) = tmp;
-        
-        return result;
-    }
-    
-    return Nil;
+	result = InfoHead(Q);
+	Head(Q) = tmp; /* restore state Head */
+	
+	return result;
 }
 
 void Iterate (Queue Q) {
@@ -106,6 +106,6 @@ void Iterate (Queue Q) {
 		return;
 
     for (idx = 1; idx <= NbElmt(Q); idx++)
-        printf("%ld ", Peek(Q, idx));
-	printf("\n");
+        printf("%ld\n", Peek(Q, idx));
+	//printf("\n");
 }

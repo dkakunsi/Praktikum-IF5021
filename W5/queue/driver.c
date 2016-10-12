@@ -27,61 +27,97 @@ void test1() {
     
     CreateEmpty(&Q, 4);
     printf("Head %d\n", Head(Q));
+    printf("Info Head %d\n", InfoHead(Q));
     printf("Tail %d\n", Tail(Q));
+    printf("Info Tail %d\n", InfoTail(Q));
     printf("Max %d\n", MaxEl(Q));
     printf("Empty %d\n", IsEmpty(Q));
+    printf("Full %d\n", IsFull(Q));
     printf("\n");
+	
+	printf(">>>>>>>>>>>>>");
+	Iterate(Q);
+	printf("\n");
 
     Add(&Q, 1);
 	printf("ADD >>>>>>\n");
     printf("Head %d\n", Head(Q));
+    printf("Info Head %d\n", InfoHead(Q));
     printf("Tail %d\n", Tail(Q));
+    printf("Info Tail %d\n", InfoTail(Q));
     printf("NbElmt %d\n", NbElmt(Q));
+    printf("Empty %d\n", IsEmpty(Q));
+    printf("Full %d\n", IsFull(Q));
     printf("\n");
 
     Add(&Q, 2);
 	printf("ADD >>>>>>\n");
     printf("Head %d\n", Head(Q));
+    printf("Info Head %d\n", InfoHead(Q));
     printf("Tail %d\n", Tail(Q));
+    printf("Info Tail %d\n", InfoTail(Q));
     printf("NbElmt %d\n", NbElmt(Q));
+    printf("Empty %d\n", IsEmpty(Q));
+    printf("Full %d\n", IsFull(Q));
     printf("\n");
     
     Add(&Q, 3);
 	printf("ADD >>>>>>\n");
     printf("Head %d\n", Head(Q));
+    printf("Info Head %d\n", InfoHead(Q));
     printf("Tail %d\n", Tail(Q));
+    printf("Info Tail %d\n", InfoTail(Q));
     printf("NbElmt %d\n", NbElmt(Q));
-    printf("\n");
-
-    Add(&Q, 4);
-	printf("ADD >>>>>>\n");
-    printf("Head %d\n", Head(Q));
-    printf("Tail %d\n", Tail(Q));
-    printf("NbElmt %d\n", NbElmt(Q));
-    printf("\n");
-
+    printf("Empty %d\n", IsEmpty(Q));
     printf("Full %d\n", IsFull(Q));
     printf("\n");
 
     Add(&Q, 4);
 	printf("ADD >>>>>>\n");
     printf("Head %d\n", Head(Q));
+    printf("Info Head %d\n", InfoHead(Q));
     printf("Tail %d\n", Tail(Q));
+    printf("Info Tail %d\n", InfoTail(Q));
     printf("NbElmt %d\n", NbElmt(Q));
+    printf("Empty %d\n", IsEmpty(Q));
+    printf("Full %d\n", IsFull(Q));
+    printf("\n");
+
+    printf("Empty %d\n", IsEmpty(Q));
+    printf("Full %d\n", IsFull(Q));
     printf("\n");
 
     Add(&Q, 4);
 	printf("ADD >>>>>>\n");
     printf("Head %d\n", Head(Q));
+    printf("Info Head %d\n", InfoHead(Q));
     printf("Tail %d\n", Tail(Q));
+    printf("Info Tail %d\n", InfoTail(Q));
     printf("NbElmt %d\n", NbElmt(Q));
+    printf("Empty %d\n", IsEmpty(Q));
+    printf("Full %d\n", IsFull(Q));
     printf("\n");
 
     Add(&Q, 4);
 	printf("ADD >>>>>>\n");
     printf("Head %d\n", Head(Q));
+    printf("Info Head %d\n", InfoHead(Q));
     printf("Tail %d\n", Tail(Q));
+    printf("Info Tail %d\n", InfoTail(Q));
     printf("NbElmt %d\n", NbElmt(Q));
+    printf("Empty %d\n", IsEmpty(Q));
+    printf("Full %d\n", IsFull(Q));
+    printf("\n");
+
+    Add(&Q, 4);
+	printf("ADD >>>>>>\n");
+    printf("Head %d\n", Head(Q));
+    printf("Info Head %d\n", InfoHead(Q));
+    printf("Tail %d\n", Tail(Q));
+    printf("Info Tail %d\n", InfoTail(Q));
+    printf("NbElmt %d\n", NbElmt(Q));
+    printf("Empty %d\n", IsEmpty(Q));
+    printf("Full %d\n", IsFull(Q));
     printf("\n");
     
 	printf(">>>>>>>>>>\n");
@@ -93,12 +129,15 @@ void test1() {
 	printf("Elemen ke-3: %d\n", Peek(Q, 3));
     printf("\n");
 
-	
     Del(&Q, &X);
 	printf("DEL >>>>>>\n");
     printf("Head %d\n", Head(Q));
+    printf("Info Head %d\n", InfoHead(Q));
     printf("Tail %d\n", Tail(Q));
+    printf("Info Tail %d\n", InfoTail(Q));
     printf("NbElmt %d\n", NbElmt(Q));
+    printf("Empty %d\n", IsEmpty(Q));
+    printf("Full %d\n", IsFull(Q));
     printf("Val %d\n", X);
     printf("\n");
 
@@ -109,8 +148,12 @@ void test1() {
     Del(&Q, &X);
 	printf("DEL >>>>>>\n");
     printf("Head %d\n", Head(Q));
+    printf("Info Head %d\n", InfoHead(Q));
     printf("Tail %d\n", Tail(Q));
+    printf("Info Tail %d\n", InfoTail(Q));
     printf("NbElmt %d\n", NbElmt(Q));
+    printf("Empty %d\n", IsEmpty(Q));
+    printf("Full %d\n", IsFull(Q));
     printf("Val %d\n", X);
     printf("\n");
 
@@ -121,8 +164,12 @@ void test1() {
     Del(&Q, &X);
 	printf("DEL >>>>>>\n");
     printf("Head %d\n", Head(Q));
+    printf("Info Head %d\n", InfoHead(Q));
     printf("Tail %d\n", Tail(Q));
+    printf("Info Tail %d\n", InfoTail(Q));
     printf("NbElmt %d\n", NbElmt(Q));
+    printf("Empty %d\n", IsEmpty(Q));
+    printf("Full %d\n", IsFull(Q));
     printf("Val %d\n", X);
     printf("\n");
     
@@ -133,11 +180,40 @@ void test1() {
     Del(&Q, &X);
 	printf("DEL >>>>>>\n");
     printf("Head %d\n", Head(Q));
+    printf("Info Head %d\n", InfoHead(Q));
     printf("Tail %d\n", Tail(Q));
+    printf("Info Tail %d\n", InfoTail(Q));
     printf("NbElmt %d\n", NbElmt(Q));
-    printf("Val %d\n", X);
     printf("Empty %d\n", IsEmpty(Q));
+    printf("Full %d\n", IsFull(Q));
+    printf("Val %d\n", X);
+
     Iterate(Q);
+    printf("\n");
+
+    Del(&Q, &X);
+	printf("DEL >>>>>>\n");
+    printf("Head %d\n", Head(Q));
+    printf("Info Head %d\n", InfoHead(Q));
+    printf("Tail %d\n", Tail(Q));
+    printf("Info Tail %d\n", InfoTail(Q));
+    printf("NbElmt %d\n", NbElmt(Q));
+    printf("Empty %d\n", IsEmpty(Q));
+    printf("Full %d\n", IsFull(Q));
+    printf("Val %d\n", X);
+    printf("\n");
+
+    Del(&Q, &X);
+	printf("DEL >>>>>>\n");
+    printf("Head %d\n", Head(Q));
+    printf("Info Head %d\n", InfoHead(Q));
+    printf("Tail %d\n", Tail(Q));
+    printf("Info Tail %d\n", InfoTail(Q));
+    printf("NbElmt %d\n", NbElmt(Q));
+    printf("Empty %d\n", IsEmpty(Q));
+    printf("Full %d\n", IsFull(Q));
+    printf("Val %d\n", X);
+    printf("\n");
 }
 
 void test2() {
@@ -146,36 +222,49 @@ void test2() {
     
     CreateEmpty(&Q, 4);
     printf("Head %d\n", Head(Q));
+    printf("Info Head %d\n", InfoHead(Q));
     printf("Tail %d\n", Tail(Q));
+    printf("Info Tail %d\n", InfoTail(Q));
+    printf("NbElmt %d\n", NbElmt(Q));
     printf("Max %d\n", MaxEl(Q));
     printf("Empty %d\n", IsEmpty(Q));
     printf("\n");
+	
+	printf("Elemen ke-1: %d\n", Peek(Q, 1));
 
     Add(&Q, 1);
 	printf("ADD >>>>>>\n");
     printf("Head %d\n", Head(Q));
+    printf("Info Head %d\n", InfoHead(Q));
     printf("Tail %d\n", Tail(Q));
+    printf("Info Tail %d\n", InfoTail(Q));
     printf("NbElmt %d\n", NbElmt(Q));
     printf("\n");
 
     Add(&Q, 2);
 	printf("ADD >>>>>>\n");
     printf("Head %d\n", Head(Q));
+    printf("Info Head %d\n", InfoHead(Q));
     printf("Tail %d\n", Tail(Q));
+    printf("Info Tail %d\n", InfoTail(Q));
     printf("NbElmt %d\n", NbElmt(Q));
     printf("\n");
     
     Add(&Q, 3);
 	printf("ADD >>>>>>\n");
     printf("Head %d\n", Head(Q));
+    printf("Info Head %d\n", InfoHead(Q));
     printf("Tail %d\n", Tail(Q));
+    printf("Info Tail %d\n", InfoTail(Q));
     printf("NbElmt %d\n", NbElmt(Q));
     printf("\n");
 
     Add(&Q, 4);
 	printf("ADD >>>>>>\n");
     printf("Head %d\n", Head(Q));
+    printf("Info Head %d\n", InfoHead(Q));
     printf("Tail %d\n", Tail(Q));
+    printf("Info Tail %d\n", InfoTail(Q));
     printf("NbElmt %d\n", NbElmt(Q));
     printf("\n");
 
@@ -188,24 +277,30 @@ void test2() {
 
     Del(&Q, &X);
 	printf("DEL >>>>>>\n");
-    printf("Head %d\n", Head(Q));
-    printf("Tail %d\n", Tail(Q));
-    printf("NbElmt %d\n", NbElmt(Q));
     printf("Val %d\n", X);
+    printf("Head %d\n", Head(Q));
+    printf("Info Head %d\n", InfoHead(Q));
+    printf("Tail %d\n", Tail(Q));
+    printf("Info Tail %d\n", InfoTail(Q));
+    printf("NbElmt %d\n", NbElmt(Q));
     printf("\n");
 
     Del(&Q, &X);
 	printf("DEL >>>>>>\n");
-    printf("Head %d\n", Head(Q));
-    printf("Tail %d\n", Tail(Q));
-    printf("NbElmt %d\n", NbElmt(Q));
     printf("Val %d\n", X);
+    printf("Head %d\n", Head(Q));
+    printf("Info Head %d\n", InfoHead(Q));
+    printf("Tail %d\n", Tail(Q));
+    printf("Info Tail %d\n", InfoTail(Q));
+    printf("NbElmt %d\n", NbElmt(Q));
     printf("\n");
 
     Add(&Q, 1);
 	printf("ADD >>>>>>\n");
     printf("Head %d\n", Head(Q));
+    printf("Info Head %d\n", InfoHead(Q));
     printf("Tail %d\n", Tail(Q));
+    printf("Info Tail %d\n", InfoTail(Q));
     printf("NbElmt %d\n", NbElmt(Q));
     printf("\n");
 
